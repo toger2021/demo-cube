@@ -1,4 +1,4 @@
-package demo.cube;
+package demo.cube.controller;
 
 import io.swagger.annotations.ApiOperation;
 import org.kociemba.twophase.SearchThreadSafe;

@@ -1,4 +1,4 @@
-package demo.cube;
+package demo.cube.controller;
 
 import lombok.Data;
 
