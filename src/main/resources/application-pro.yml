@@ -1,0 +1,8 @@
+## profile 名称
+profile:
+  name: pro
+server:
+  port: 10090
+grpc:
+  server:
+    port: 0

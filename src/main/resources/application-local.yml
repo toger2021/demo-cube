@@ -1,0 +1,8 @@
+## profile 名称
+profile:
+  name: local
+server:
+  port: 9092
+grpc:
+  server:
+    port: 16802
