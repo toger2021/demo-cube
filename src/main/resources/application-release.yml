@@ -1,5 +1,5 @@
 ## profile 名称
 profile:
-  name: pro
+  name: release
 server:
-  port: 10090
+  port: 9092

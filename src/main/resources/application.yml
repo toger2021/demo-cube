@@ -6,7 +6,7 @@ spring:
   main:
     allow-bean-definition-overriding: true
 app:
-  id: demo-grpc-user-domain
+  id: demo-cube
 management:
   endpoints:
     web:
