@@ -1,10 +1,11 @@
 package com.weijiekeji.tngou.cache;
 
 import java.util.Date;
+import org.junit.jupiter.api.Test;
 
 public class CacheEngineTest {
 
-	@org.junit.jupiter.api.Test
+	@Test
 	public void CacheEngine() {
 		
 		CacheEngine engine = new TgCacheEngine();//创建缓存	

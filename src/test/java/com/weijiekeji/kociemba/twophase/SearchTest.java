@@ -2,20 +2,17 @@ package com.weijiekeji.kociemba.twophase;
 
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import static org.junit.jupiter.api.Assertions.*;
-@ExtendWith(SpringExtension.class)
 public class SearchTest {
 
     @RepeatedTest(100)
+    //@Test
     public void searchSolutionThreadSafe() {
         System.out.println(Thread.currentThread().getName()+ "Start CoordCube");
         Long starttime = System.currentTimeMillis();
-//		new CoordCube();
-//		System.out.println("=>"+(System.currentTimeMillis()-starttime));
-
+		new CoordCube();
+		System.out.println("=>"+(System.currentTimeMillis()-starttime));
 
         for (int i=0;i<1;i++) {
             starttime = System.currentTimeMillis();

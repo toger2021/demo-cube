@@ -1,9 +1,6 @@
 package com.weijiekeji.kociemba.twophase;
-
-import com.google.gson.Gson;
 import com.weijiekeji.tngou.cache.CacheEngine;
 import com.weijiekeji.tngou.cache.TgCacheEngine;
-import redis.clients.jedis.Jedis;
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // Representation of the cube on the coordinate level
@@ -23,15 +20,10 @@ public class CoordCube {
 	static final int N_URtoBR = 479001600;// 8! permutations of the corners
 	
 	static final short N_MOVE = 18;
-	//连接本地的 Redis 服务
-	static Jedis jedis;
 	static CacheEngine jfile;
-	static Gson json = new Gson();
 
 	static String cachemodel="file"; //file / redis
 	static {
-		if( cachemodel == "redis" )
-		jedis = new Jedis("192.168.40.185", 6379);
 		if( cachemodel == "file" )
 		jfile = new TgCacheEngine();//创建缓存
 	}
@@ -79,9 +71,7 @@ public class CoordCube {
 
 		cachemodelTotal++;
 //		System.out.println(Thread.currentThread().getName()+" cachemodelTotal=>"+cachemodelTotal);
-		if(cachemodel == "redis" && jedis.exists(key)){
-			return json.fromJson(jedis.get(key),classOfT);
-		}else if (cachemodel == "file" )
+		if (cachemodel == "file" )
 		{
 			return (T)jfile.get(key);
 		}
@@ -89,8 +79,6 @@ public class CoordCube {
 	}
 
 	private static void dump_cachetable(String key, Object obj){
-		if(cachemodel == "redis")
-		    jedis.set(key , json.toJson(obj));
 		if (cachemodel == "file" )
 			jfile.add(key, obj);
 	}
