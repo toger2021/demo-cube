@@ -4,6 +4,9 @@ import java.util.Random;
 
 public class Tools {
 
+	private static  Long starttime = System.currentTimeMillis();
+	private static  Integer retimes = 0;
+
 	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	// Check if the cube string s represents a solvable cube.
 	// 0: Cube is solvable
@@ -60,5 +63,24 @@ public class Tools {
 		} while ((cc.edgeParity() ^ cc.cornerParity()) != 0);
 		FaceCube fc = cc.toFaceCube();
 		return fc.to_String();
+	}
+    public static Boolean chkMoves(String cubeStr, String moves) {
+		Cube cube = new Cube(cubeStr);
+		for (String move : moves.split(" ")) // rotating
+			cube.rotate(move);
+		return cube.isSolved();
+	}
+
+	public static Long getTimeCost(){
+		return getTimeCost(true);
+	}
+	public static String getTimesAndTimeCost(){
+		return retimes+"::"+getTimeCost();
+	}
+	public static Long getTimeCost(Boolean resettime){
+		retimes++;
+		Long costtime=System.currentTimeMillis()-starttime;
+		if(resettime) starttime=System.currentTimeMillis();
+		return costtime;
 	}
 }

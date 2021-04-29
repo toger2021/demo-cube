@@ -2,8 +2,6 @@
 只需用摄像头把魔方的六个面扫描一遍就能直接给出还原步骤。即使你的魔方不是标准配色或房间的照明情况特殊也可以通过颜色校准模式来识别。这款荷兰小哥发布的3阶魔方解算器“Qbr”已经在GitHub上开源。 https://github.com/kkoomen/qbr.git
 遗憾的是这款qdr是python版本的，这里整理出java版本的kociemba库，增加了线程安全的支持和文件缓存，前端图片识别编码魔方，后端通过kkoomen解码，
 
-https://github.com/toger2021/demo-cube.git
-https://gitee.com/taoren/demo-cube.git
 
 ### 线程安全SearchThreadSafe 的使用方法
 ```
@@ -39,6 +37,10 @@ https://github.com/toger2021/vue-cube.git
 </dependency>
 
 ````
+## Search solution 的线程安全
+在web的场景下，应该使用线程安全的版本SearchThreadSafe，
+在单个应用的场景可以使用非线程安全的版本，因为只又一个程序在跑比如桌面应用或者魔方机器人
+具体的可以参看test com.weijiekeji.kociemba.twophase.SearchTest
 ## restfulapi使用
 ```
 package youpackage
@@ -73,7 +75,34 @@ public class CubeController {
 }
 
 ```
+
+## vue-cube项目地址：
+[https://github.com/toger2021/vue-cube.git](https://github.com/toger2021/vue-cube.git)
+[https://gitee.com/taoren/vue-cube.git](https://gitee.com/taoren/vue-cube.git)
+
+## cube-java java实现以及JFrame的实现
+[https://github.com/toger2021/cube-java](https://github.com/toger2021/cube-java)
+[https://gitee.com/taoren/cube-java.git](https://gitee.com/taoren/cube-java.git)
+
+## cube-kociemba 优化后的jar包源文件
+[https://github.com/toger2021/demo-cube.git](https://github.com/toger2021/demo-cube.git)]
+[https://gitee.com/taoren/demo-cube.git](https://gitee.com/taoren/demo-cube.git)
+maven 引用使用
+```
+<dependency>
+            <groupId>io.github.toger2021</groupId>
+            <artifactId>cube-kociemba</artifactId>
+            <version>1.0.1</version>
+ </dependency>
+```
+
+
 ## 解码魔方参考链接：
-[1]http://programmablebrick.blogspot.com/2017/02/rubiks-cube-tracker-using-opencv.html
-[2]https://www.youtube.com/watch?v=ixTddQQ2Hs4
-[色差计算(颜色之间的相似度计算)] https://blog.csdn.net/qq_16564093/article/details/80698479
+[1rubiks-cube-tracker-using-opencv](http://programmablebrick.blogspot.com/2017/02/rubiks-cube-tracker-using-opencv.html)
+
+[2 youtube](https://www.youtube.com/watch?v=ixTddQQ2Hs4)
+
+[3 色差计算(颜色之间的相似度计算)] (https://blog.csdn.net/qq_16564093/article/details/80698479)
+
+(GUI is inspired from Kociemba's[Java package](http://kociemba.org/download.htm) and org.kociemba.twophase package also belongs to him.)
+

@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.github.toger2021</groupId>
     <artifactId>cube-kociemba</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2-SNAPSHOT</version>
     <name>cube-kociemba</name>
     <url>https://github.com/toger2021/demo-cube</url>
     <description>java kociemba project for cube</description>
@@ -143,7 +143,7 @@
          <connection>scm:git:https://github.com/toger2021/demo-cube.git</connection>
          <developerConnection>scm:git:https://github.com/toger2021/demo-cube.git</developerConnection>
          <url>git:https://github.com/toger2021/demo-cube.git</url>
-      <tag>1.0.1</tag>
+      <tag>1.0.2</tag>
   </scm>
     <developers>
              <developer>
